@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <!-- <link rel="stylesheet" href="product-detail-page.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Page</title>
+</head>
+<body>
+    <form class = "container">
+        <div class="form-group">
+            <label for="lname">Product Identifier</label>
+            <input class="form-control" type="text" id="pid" name="pid">
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input class="form-control" type="number" id="quantity" name="quantity">
+        </div>
+
+        <div class = "form-row">
+            <div class="form-group col-md-6">
+                <label for="fname">First Name</label>
+                <input type="text" class = "form-control" id="fname" placeholder="First Name">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="lname">Last Name</label>
+                <input type="text" class = "form-control" id="lname" placeholder="Last Name">
+            </div>
+        </div>
+       
+        <div class="form-group">
+         <label for="phone">Phone Number</label>
+            <input class="form-control" type="tel" id="phone" name="phone">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="address1">Address</label>
+            <input class="form-control" type="text" id="address1" name="address1">
+        </div>
+
+        <div class="form-group">
+            <label for="address2">Address 2</label>
+            <input class="form-control" type="text" id="address2" name="address2">
+        </div>
+
+        <div class = "form-row">
+            <div class="form-group col-md-6">
+                <label for="address2">City</label>
+                <input class = "form-control" type="text" id="city" name="city">
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="state">State</label>
+                <input class="form-control" type="text" id="state" name="state">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="zip">Zip</label>
+                <input class="form-control" type="text" id="zip" name="zip">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="shipping">Shipping</label>
+            <input type="radio" id="standard" name="shipping">
+            <label for="male">Standard Shipping</label>
+            <input type="radio" id="two-day" name="shipping">
+            <label for="male">Two-Day Shipping</label>
+            <input type="radio" id="overnight" name="shipping">
+            <label for="male">Overnight Shipping</label>
+        </div>
+
+         <div class="form-row">
+             <div class = "form-group col-md-8">
+                <label for="ccnum">Card Card Number</label>
+                <input class="form-control" type="text" id="ccnum" name="ccnum">
+            </div>
+
+            <div class="form-group col-md-2">
+                <label for="expiration">Expiration </label>
+                <input class="form-control" type="text" id="expiration" name="expiration">
+             </div>
+
+             <div class="form-group col-md-2">
+                <label for="cvv">CVV</label>
+                <input class="form-control" type="text" id="cvv" name="cvv">
+            </div>
+         </div>
+
+        <button type="submit" class="btn btn-primary"">Submit</button>
+    </form>
+</body>
+</html>
