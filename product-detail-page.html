@@ -12,24 +12,24 @@
         <div class = "form-row">
             <div class="form-group col-md-8">
                 <label for="lname">Product Identifier</label>
-                <input class="form-control" type="text" id="pid" name="pid">
+                <input class="form-control" type="text" id="pid" name="pid" required>
             </div>
 
             <div class="form-group col-md-2">
                 <label for="quantity">Quantity</label>
-                <input class="form-control" type="number" id="quantity" name="quantity">
+                <input class="form-control" type="number" id="quantity" name="quantity" required>
             </div>
         </div>
 
         <div class = "form-row">
             <div class="form-group col-md-6">
                 <label for="fname">First Name</label>
-                <input type="text" class = "form-control" id="fname" placeholder="First Name">
+                <input type="text" class = "form-control" id="fname" placeholder="First Name" required >
             </div>
 
             <div class="form-group col-md-6">
                 <label for="lname">Last Name</label>
-                <input type="text" class = "form-control" id="lname" placeholder="Last Name">
+                <input type="text" class = "form-control" id="lname" placeholder="Last Name" required>
             </div>
         </div>
        
@@ -37,19 +37,19 @@
 
             <div class="form-group col-md-8">
                 <label for="email">Email</label>
-                <input class="form-control" type="email" id="email" name="email" placeholder="youremail@domain.com">
+                <input class="form-control" type="email" id="email" name="email" placeholder="youremail@domain.com" required>
             </div>
 
             <div class="form-group col-md-4">
                 <label for="phone">Phone Number</label>
-                <input class="form-control" type="tel" id="phone" name="phone" placeholder="123-456-7890">
+                <input class="form-control" type="tel" id="phone" name="phone" placeholder="123-456-7890" required>
             </div>
 
         </div>
 
         <div class="form-group">
             <label for="address1">Address</label>
-            <input class="form-control" type="text" id="address1" name="address1" placeholder="1234 Main St">
+            <input class="form-control" type="text" id="address1" name="address1" placeholder="1234 Main St" required>
         </div>
 
         <div class="form-group">
@@ -60,17 +60,17 @@
         <div class = "form-row">
             <div class="form-group col-md-6">
                 <label for="address2">City</label>
-                <input class = "form-control" type="text" id="city" name="city" placeholder="Irvine">
+                <input class = "form-control" type="text" id="city" name="city" placeholder="Irvine" required>
             </div>
 
             <div class="form-group col-md-4">
                 <label for="state">State</label>
-                <input class="form-control" type="text" id="state" name="state" placeholder="CA">
+                <input class="form-control" type="text" id="state" name="state" placeholder="CA" required>
             </div>
 
             <div class="form-group col-md-2">
                 <label for="zip">Zip</label>
-                <input class="form-control" type="text" id="zip" name="zip" placeholder="92612">
+                <input class="form-control" type="text" id="zip" name="zip" placeholder="92612" required>
             </div>
         </div>
 
@@ -79,34 +79,34 @@
 
                 <div class="form-group col-md-4">
                     <input type="radio" id="standard" name="shipping">
-                    <label for="male">Standard Shipping</label>
+                    <label for="standard">Standard Shipping</label>
                 </div>
 
                 <div class = "form-group col-md-4">
                     <input type="radio" id="two-day" name="shipping">
-                    <label for="male">Two-Day Shipping</label>
+                    <label for="two-day">Two-Day Shipping</label>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <input type="radio" id="overnight" name="shipping">
-                    <label for="male">Overnight Shipping</label>
+                    <input type="radio" id="overnight" name="shipping" checked>
+                    <label for="two-day">Overnight Shipping</label>
                 </div>
             </div>
 
          <div class="form-row">
              <div class = "form-group col-md-8">
                 <label for="ccnum">Card Card Number</label>
-                <input class="form-control" type="text" id="ccnum" name="ccnum">
+                <input class="form-control" type="text" id="ccnum" name="ccnum" required>
             </div>
 
             <div class="form-group col-md-2">
                 <label for="expiration">Expiration </label>
-                <input class="form-control" type="text" id="expiration" name="expiration" placeholder= "01/10">
+                <input class="form-control" type="text" id="expiration" name="expiration" placeholder= "01/10" required>
              </div>
 
              <div class="form-group col-md-2">
                 <label for="cvv">CVV</label>
-                <input class="form-control" type="text" id="cvv" name="cvv" placeholder = "000">
+                <input class="form-control" type="text" id="cvv" name="cvv" placeholder = "000" required>
             </div>
          </div>
 
