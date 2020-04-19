@@ -5,6 +5,12 @@ async function submitForm(form){
     var invalidInput = false;
     var alertMsg = "";
 
+    var email = document.OrderForm.email.value;
+    const email_re = new RegExp("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
+    if(!(email_re.test(email))){
+        invalidInput = true;
+        alertMsg += "Bad input for email \n"
+    }
 
 
     // checks quantity for input less than 1 and if it is a number
@@ -12,6 +18,14 @@ async function submitForm(form){
     if ((parseInt(quantity) < 1) || !(Number.isInteger(zip))) {
         invalidInput = true;
         alertMsg += "Bad input for quantity \n";
+    }
+
+    //check if phone matches the format 123-456-7890
+    var phone = document.OrderForm.phone.value;
+    var phone_re = new RegExp("^[0-9]{3}-[0-9]{3}-[0-9]{4}$");
+    if(!(phone_re.test(phone))){
+        invalidInput = true;
+        alertMsg += "Bad input for phone number \n"
     }
 
     // checks if state city and zip match an entry in csv file
@@ -39,11 +53,12 @@ async function submitForm(form){
         // alert(alertMsg);
     }
 
+    //check credit card expiration date against regex
     var expiration = document.OrderForm.expiration.value
-        if (!(/^[0-9]{2}\/[0-9]{2}$/.test(expiration))){
-            invalidInput = true;
-            alertMsg += "Bad input for credit card expiration \n"
-        }
+    const expiration_re = new RegExp("^[0-9]{2}\/[0-9]{2}$")
+    if (!(expiration_re.test(expiration))){
+        invalidInput = true;
+        alertMsg += "Bad input for credit card expiration \n"
     }
 
     var cvv = document.OrderForm.cvv.value;
