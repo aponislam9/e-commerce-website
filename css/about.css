@@ -34,14 +34,21 @@
 
 
 /*About Page Elements *************************************************************/
+.page{
+   background-color: #d8b9c3;
+   ;
+}
+
 
 .heading-title {
-    color: #d8b9c3;
+    color: #363062;
     font-size: 50px;
+    margin-top: 20px;
+    
 }
 
 .about-text {
-    color: #f2e4e7;
+    color: #363062;
 }
 
 .about {
@@ -51,4 +58,12 @@
 body {
     background: white;
     padding-left: 15px
+}
+
+p{
+    color: #4d4c7d;
+}
+
+li{
+    color: #4d4c7d
 }
