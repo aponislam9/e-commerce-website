@@ -1,6 +1,37 @@
+/* @include  */
+
 .navbar {
     padding: 0;
     background-color: #363062;
+}
+
+/* Screen size specific CSS **************************************************/
+
+/* For Mobile Devides */
+@media (min-width: 100px) {
+    .products {
+        padding-top: 150px;
+    }
+
+    .navbar-brand {
+        padding-left: 55px;
+    }
+
+    .nav-bar-links-container {
+        padding-left: 45px;
+    }
+}
+
+/* @media (min-width: 480px) {
+    .products {
+        padding-top: 300px;
+    }
+} */
+
+@media (min-width: 992px) {
+    .products {
+        padding-top: 100px;
+    }
 }
 
 /*Background color for nav bar elements **************************************/
@@ -38,10 +69,6 @@
     background-color:#363062;
 }
 
-.products {
-    padding-top: 75px;
-}
-
 .product-card {
     padding: 25px;
 }
@@ -60,13 +87,9 @@ body {
 
 /* Hover Effects *************************************************************/
 
-.product-title {
-    /* transition: 1s; */
-}
-
 .product-title:hover {
     transition: .4s;
-    background-color: #d8b9c3;
+    background-color: #f2e4e7;
     color: #363062;
     text-decoration: none;
 }
