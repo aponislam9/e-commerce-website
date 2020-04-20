@@ -79,7 +79,7 @@ window.onload = function() {
 
     for (let i in product_list) {
         var product = product_list[i]
-        this.console.log(product)
+        // this.console.log(product)
 
         // Create the product card container with column formatting
         new_product_container = this.document.createElement("div")
