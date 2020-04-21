@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/product-info.js"></script>
-    <script type="text/javascript" src = "js/form.js"></script>
+    <script src = "js/form.js"></script>
 </head>
 
 <body>
@@ -82,7 +82,7 @@
                 <p><b>Brand:</b>Nuance9</p>
 
                 
-                <button type="button" class="btn btn-default cart">
+                <button type="button" class="btn btn-default cart" onclick = "addToCart()">
                     Add to cart
                 </button>
 
@@ -98,16 +98,16 @@
 
     </div>
 
-     <form class = "container form" onsubmit="submitForm(this); return false;" method="post" enctype="text/plain" name = "OrderForm"  action="mailto:you@yourdmainhere.com">
+     <form class = "container form" onsubmit="submitForm(this); return false;" method="post" enctype="text/plain" name = "OrderForm"  action="mailto:product@nuance9.com">
         <div class = "form-row">
             <div class="form-group col-md-3">
                 <label for="lname">Product Identifier</label>
-                <input class="form-control" type="text" id="pid" name="pid" required>
+                <input class="form-control" type="text" id="pid" name="pid" disabled>
             </div>
 
             <div class="form-group col-md-1">
                 <label for="quantity">Quantity</label>
-                <input class="form-control" type="number" id="quantity" name="quantity" required  min="1" max="10" value = "1">
+                <input class="form-control" type="number" id="quantity" name="quantity" required min="1" max="10">
             </div>
         </div>
 

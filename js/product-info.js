@@ -147,6 +147,8 @@ var description = ""
 var srcOne = ""
 var srcTwo = ""
 var srcThree = ""
+var src = ""
+var pid = ""
 
 window.onload = function() {
     
@@ -170,6 +172,8 @@ function updateVariables(){
             this.srcOne = product_list[i].srcOne
             this.srcTwo = product_list[i].srcTwo
             this.srcThree = product_list[i].srcThree
+            this.src = product_list[i].src;
+            this.pid = product_list[i].id;
         }
     }
 }
@@ -198,6 +202,12 @@ function updatePage(){
     thirdImage.src = this.srcThree
 
 
+}
+
+function addToCart(){
+    document.OrderForm.pid.value = this.pid;
+    document.OrderForm.quantity.value = 1;
+    
 }
 
 

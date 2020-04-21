@@ -17,7 +17,7 @@ async function submitForm(form){
 
     //check last name
     var lname = document.OrderForm.lname.value;
-    if((lname.length == 0) || !!(name_re.test(lname))){
+    if((lname.length == 0) || !(name_re.test(lname))){
         invalidInput = true;
         alertMsg += "Bad input for last name \n"
     }
@@ -33,14 +33,14 @@ async function submitForm(form){
 
     // checks quantity for input less than 1 and if it is a number
     var quantity = document.OrderForm.quantity.value;
-    if ((parseInt(quantity) < 1) || !(Number.isInteger(zip))) {
+    if ((parseInt(quantity) <= 0) || isNaN(quantity)) {
         invalidInput = true;
         alertMsg += "Bad input for quantity \n";
     }
 
     //check if phone matches the format 123-456-7890
     var phone = document.OrderForm.phone.value;
-    var phone_re = new RegExp("^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$");
+    const phone_re = new RegExp("^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$");
     if(!(phone_re.test(phone))){
         invalidInput = true;
         alertMsg += "Bad input for phone number \n"
@@ -48,8 +48,8 @@ async function submitForm(form){
 
     //check for stress address
     var address1 = document.OrderForm.address1.value;
-    var address1_re = new RegExp("^[a-zA-Z\s\d\/]*\d[a-zA-Z\s\d\/]*$");
-    if(!(address1_re.test(address1)) || (address1.length == 0)){
+    const address1_re = /^\s*\S+(?:\s+\S+){2}$/;
+    if(!(address1_re.test(address1))){
         invalidInput = true;
         alertMsg += "Bad input for street address \n"
     }
@@ -61,20 +61,14 @@ async function submitForm(form){
     var zip = document.OrderForm.zip.value;
     const validAddress = await getData(city, state, zip);
     if(!(validAddress)){
-        alertMsg += "Bad input for address \n"
+        alertMsg += "Bad input for city state zip combination \n"
         invalidInput = true;
     }
     
-    // check zip if it has 5 numbers and if it is a number
-    var zip = document.OrderForm.zip.value;
-    if((zip.length != 5) || !(Number.isInteger(zip))){
-        invalidInput = true;
-        alertMsg += "Bad input for zip code \n";
-    }
 
     //check if credit card number has 16 digits and is a number
     var ccnum = document.OrderForm.ccnum.value;
-    if ((ccnum.length != 16) && !(Number.isInteger(ccnum))) {
+    if ((ccnum.length != 16) || isNaN(ccnum)) {
         invalidInput = true;
         alertMsg += "Bad input for credit card number \n"
         // alert(alertMsg);
@@ -82,14 +76,14 @@ async function submitForm(form){
 
     //check credit card expiration date against regex
     var expiration = document.OrderForm.expiration.value
-    const expiration_re = new RegExp("^[0-9]{2}\/[0-9]{2}$")
+    const expiration_re = new RegExp("^(0[1-9]|10|11|12)/[0-9]{2}$")
     if (!(expiration_re.test(expiration))){
         invalidInput = true;
         alertMsg += "Bad input for credit card expiration \n"
     }
 
     var cvv = document.OrderForm.cvv.value;
-    if ((cvv.length != 3) && !(Number.isInteger(cvv))) {
+    if (cvv.length != 3 || isNaN(cvv)) {
         invalidInput = true;
         alertMsg += "Bad input for cvv code \n"
     }
@@ -104,7 +98,7 @@ async function submitForm(form){
 }
 
 async function getData(city, state, zip) {
-    const response = await fetch('./data/test.csv');
+    const response = await fetch('./data/zip_code_database.csv');
     const data = await response.text();
     const rows = data.split('\n')
 
