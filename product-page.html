@@ -64,60 +64,64 @@
 
      <form class = "container form" onsubmit="submitForm(this); return false;" method="post" enctype="text/plain" name = "OrderForm"  action="mailto:you@yourdmainhere.com">
         <div class = "form-row">
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-3">
                 <label for="lname">Product Identifier</label>
                 <input class="form-control" type="text" id="pid" name="pid" required>
             </div>
 
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-1">
                 <label for="quantity">Quantity</label>
                 <input class="form-control" type="number" id="quantity" name="quantity" required  min="1" max="10" value = "1">
             </div>
         </div>
 
         <div class = "form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label for="fname">First Name</label>
-                <input type="text" class = "form-control" id="fname" placeholder="First Name" name = "firstName" required >
+                <input type="text" class = "form-control" id="fname"  name = "firstName" required >
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label for="lname">Last Name</label>
-                <input type="text" class = "form-control" id="lname" placeholder="Last Name" name = "lastName" required>
+                <input type="text" class = "form-control" id="lname" name = "lastName" required>
             </div>
         </div>
        
         <div class = "form-row">
 
-            <div class="form-group col-md-8">
-                <label for="email">Email</label>
-                <input class="form-control" type="email" id="email" name="email" placeholder="youremail@domain.com" required>
-            </div>
-
             <div class="form-group col-md-4">
-                <label for="phone">Phone Number</label>
-                <input class="form-control" type="tel" id="phone" name="phone" placeholder="123-456-7890" required  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                <label for="email">Email</label>
+                <input class="form-control" type="email" id="email" name="email" required>
             </div>
 
-        </div>
+            <div class="form-group col-md-3">
+                <label for="phone">Phone Number</label>
+                <input class="form-control" type="tel" id="phone" name="phone" required>
+            </div>
 
-        <div class="form-group">
-            <label for="address1">Address</label>
-            <input class="form-control" type="text" id="address1" name="address1" placeholder="Street and number, P.O. box c/o" required>
-        </div>
-
-        <div class="form-group">
-            <label for="address2">Address 2</label>
-            <input class="form-control" type="text" id="address2" name="address2" placeholder="Apartment, studio, or floor (optional)">
         </div>
 
         <div class = "form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-5">
+                <label for="address1">Address</label>
+                <input class="form-control" type="text" id="address1" name="address1" placeholder="Street and number, P.O. box c/o" required>
+            </div>
+        </div>
+
+        <div class = "form-row">
+            <div class="form-group col-md-5">
+                <label for="address2">Address 2</label>
+                <input class="form-control" type="text" id="address2" name="address2" placeholder="Apartment, studio, or floor (optional)">
+            </div>
+         </div>
+
+        <div class = "form-row">
+            <div class="form-group col-md-3">
                 <label for="address2">City</label>
                 <input class = "form-control" type="text" id="city" name="city"  required>
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-1">
                 <label for="state">State</label>
                 <select class="form-control" id="state" required name = "state" onfocus = "generateStateOptions()">
                     
@@ -133,24 +137,24 @@
          <label for="shipping">Shipping</label>
             <div class = "form-row">
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <input type="radio" id="standard" name="shipping">
                     <label for="standard">Standard Shipping</label>
                 </div>
 
-                <div class = "form-group col-md-4">
+                <div class = "form-group col-md-3">
                     <input type="radio" id="two-day" name="shipping">
                     <label for="two-day">Two-Day Shipping</label>
                 </div>
 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <input type="radio" id="overnight" name="shipping" checked>
                     <label for="two-day">Overnight Shipping</label>
                 </div>
             </div>
 
          <div class="form-row">
-             <div class = "form-group col-md-8">
+             <div class = "form-group col-md-3">
                 <label for="ccnum">Card Card Number</label>
                 <input class="form-control" type="text" id="ccnum" name="ccnum" pattern="[0-9]{16}">
             </div>
