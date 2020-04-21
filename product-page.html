@@ -8,23 +8,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/product-page.css">
     <script src="js/product-info.js"></script>
-    <script type="text/javascript" src = "js/form.js"></script>
+    <script src = "js/form.js"></script>
 </head>
 
 <body>
-    <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/Nuance9-Logo.png" alt="Nuance 9 Logo">
-            </a>
-            <div class="nav-bar-links-container">
-                <div class="topnav" id="nav-bar-tabs">
-                    <a href="index.html">Apparel</a>
-                    <a href="about.html">About</a>
-                </div>
+            <img src="assets/Nuance9-Logo.png" alt="Nuance 9 Logo">
+        
+            <div class="topnav nav-bar-links-container">
+                <a class="active" href="#apparel">Apparel</a>
+                <a href="#collections">Collections</a>
+                <a href="#about">About</a>
             </div>
-
+            
         </div>
     </nav>
 
@@ -52,7 +49,7 @@
                 <p><b>Brand:</b>Nuance9</p>
 
                 
-                <button type="button" class="btn btn-default cart">
+                <button type="button" class="btn btn-default cart" onclick = "addToCart()">
                     Add to cart
                 </button>
 
@@ -65,16 +62,16 @@
 
     </div>
 
-     <form class = "container form" onsubmit="submitForm(this); return false;" method="post" enctype="text/plain" name = "OrderForm"  action="mailto:you@yourdmainhere.com">
+     <form class = "container form" onsubmit="submitForm(this); return false;" method="post" enctype="text/plain" name = "OrderForm"  action="mailto:product@nuance9.com">
         <div class = "form-row">
             <div class="form-group col-md-3">
                 <label for="lname">Product Identifier</label>
-                <input class="form-control" type="text" id="pid" name="pid" required>
+                <input class="form-control" type="text" id="pid" name="pid" disabled>
             </div>
 
             <div class="form-group col-md-1">
                 <label for="quantity">Quantity</label>
-                <input class="form-control" type="number" id="quantity" name="quantity" required  min="1" max="10" value = "1">
+                <input class="form-control" type="number" id="quantity" name="quantity" required min="1" max="10">
             </div>
         </div>
 
