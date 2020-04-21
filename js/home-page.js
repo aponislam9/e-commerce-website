@@ -72,6 +72,30 @@ product_list = [
         image_href: "#",
         alt: ""
     },
+    {
+        name: "Samurai",
+        price: "$59.99",
+        description: "Want to look cool while going out into the country to protect your feudal lord's land? Don't forget to wear this jacket.",
+        src: "assets/Product-10-v0.jpg",
+        image_href: "#",
+        alt: ""
+    },
+    {
+        name: "Drifter",
+        price: "$64.99",
+        description: "Keep the sliding happen when you step out of the car with these shoes.",
+        src: "assets/Product-11-v0.jpg",
+        image_href: "#",
+        alt: ""
+    },
+    {
+        name: "Godzilla",
+        price: "$24.99",
+        description: "What better way to represent the best generation of cars than to wear it on your shirt?",
+        src: "assets/Product-12-v0.jpg",
+        image_href: "#",
+        alt: ""
+    },
 ]
 
 window.onload = function() {
