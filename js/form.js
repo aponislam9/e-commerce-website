@@ -40,19 +40,21 @@ async function submitForm(form){
 
     //check if phone matches the format 123-456-7890
     var phone = document.OrderForm.phone.value;
-    var phone_re = new RegExp("^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$");
+    const phone_re = new RegExp("^[+]?[\s./0-9]*[(]?[0-9]{1,4}[)]?[-\s./0-9]*$");
     if(!(phone_re.test(phone))){
         invalidInput = true;
         alertMsg += "Bad input for phone number \n"
     }
 
     //check for stress address
-    // var address1 = document.OrderForm.address1.value;
-    // var address1_re = new RegExp("^[a-zA-Z\s\d\/]*\d[a-zA-Z\s\d\/]*$");
-    // if(!(address1_re.test(address1)) || (address1.length == 0)){
-    //     invalidInput = true;
-    //     alertMsg += "Bad input for street address \n"
-    // }
+    var address1 = document.OrderForm.address1.value;
+    const address1_re = /^\s*\S+(?:\s+\S+){2}$/;
+    console.log(address1_re.test(address1));
+    console.log(address1);
+    if(!(address1_re.test(address1))){
+        invalidInput = true;
+        alertMsg += "Bad input for street address \n"
+    }
 
 
     // checks if state city and zip match an entry in csv file
@@ -61,7 +63,7 @@ async function submitForm(form){
     var zip = document.OrderForm.zip.value;
     const validAddress = await getData(city, state, zip);
     if(!(validAddress)){
-        alertMsg += "Bad input for address \n"
+        alertMsg += "Bad input for city state zip combination \n"
         invalidInput = true;
     }
     
