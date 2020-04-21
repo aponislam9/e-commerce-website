@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/product-page.css">
+    <script src="js/product-info.js"></script>
 </head>
 
 <body>
@@ -26,16 +27,15 @@
     <div class="Product">
         <div class="row">
             <div class="col-md-5">
-                    <img class="d-block w-100" src="assets/Product-1-v0.jpg" alt="Product img">
+                    <img id="img" class="d-block w-100" alt="Product img">
                               
             </div>
             <div class="col-md-7">
-                <h2>Crazy ass Jacket</h2>
-                <p class = "product-color">Color: Mixed<p>
-                <br>
-                <p>This jacket is super cool. Please buy this jacket and wear it because we think you will look super cool in it. k tHnx.</p>
+                <h2 id="name"></h2>
+            
+                <p id="description"></p>
                 <img src ="assets/5-star-png-12.png" class="rating">
-                <p class="price">USD $15.00</p>
+                <p class="price" id="price"></p>
         
                 <label for="size">Select a size</label>
 
@@ -45,7 +45,7 @@
                     <option value="large">Large</option>
                     
                 </select>
-                <p><b>Brand:</b>xyz company</p>
+                <p><b>Brand:</b>Nuance9</p>
 
                 
                 <button type="button" class="btn btn-default cart">

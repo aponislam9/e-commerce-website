@@ -92,7 +92,14 @@ window.onload = function() {
         card_title_a = this.document.createElement("a")
         card_title_a.classList.add("product-title")
         card_title_a.innerHTML = product.name
-        card_title_a.href = product.image_href
+        card_title_a.href = "product-page.html";
+        card_title_a.onclick=function(e){
+            // console.log(e.toElement.text)
+            var product = e.toElement.text;
+            passValue(product)
+        }
+        
+
 
         // Price
         card_cost = this.document.createElement("h5")
@@ -119,4 +126,11 @@ window.onload = function() {
         // Now add it to the DOM
         DOM_products_contaner.appendChild(new_product_container)
     }
+
+function passValue(product){
+    localStorage.setItem("textvalue",product);
+    return false;
+    // console.log(product)
+}
+
 }
