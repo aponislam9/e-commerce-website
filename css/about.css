@@ -1,6 +1,37 @@
 .navbar {
-	paddingL 0;
+	padding: 0;
 	background-color: #363062;
+}
+
+
+/* For Mobile Devides */
+@media (min-width: 0px) {
+    .about {
+        padding-top: 150px;
+    }
+
+    .navbar-brand {
+        padding-left: 55px;
+    }
+
+    .nav-bar-links-container {
+        padding-left: 90px;
+    }
+}
+
+/* For regular size screens */
+@media (min-width: 768px) {
+    .about {
+        padding-top: 100px;
+    }
+
+    .navbar-brand {
+        padding-left: 0px;
+    }
+
+    .nav-bar-links-container {
+        padding-left: 0px;
+    }
 }
 
 /*Background color for nav bar elements **************************************/
@@ -51,9 +82,9 @@
     color: #363062;
 }
 
-.about {
+/* .about {
     padding-top: 100px;
-}
+} */
 
 body {
     background: white;

@@ -8,7 +8,7 @@
 /* Screen size specific CSS **************************************************/
 
 /* For Mobile Devides */
-@media (min-width: 100px) {
+@media (min-width: 0px) {
     .products {
         padding-top: 150px;
     }
@@ -18,19 +18,61 @@
     }
 
     .nav-bar-links-container {
-        padding-left: 45px;
+        padding-left: 90px;
+    }
+
+    .product-title {
+        font-size: .80rem;
+    }
+
+    .card-cost {
+        font-size: .70rem;
+    }
+
+    .card-text {
+        font-size: .65rem;
     }
 }
 
-/* @media (min-width: 480px) {
-    .products {
-        padding-top: 300px;
+/* For small screens */
+@media (min-width: 576px) {
+    .product-title {
+        font-size: 1.5rem;
     }
-} */
 
-@media (min-width: 992px) {
+    .card-cost {
+        font-size: 1.25rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+}
+
+/* For regular size screens */
+@media (min-width: 768px) {
     .products {
         padding-top: 100px;
+    }
+
+    .navbar-brand {
+        padding-left: 0px;
+    }
+
+    .nav-bar-links-container {
+        padding-left: 0px;
+    }
+
+    .product-title {
+        font-size: 1.5rem;
+    }
+
+    .card-cost {
+        font-size: 1.25rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
     }
 }
 
