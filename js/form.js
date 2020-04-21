@@ -17,7 +17,7 @@ async function submitForm(form){
 
     //check last name
     var lname = document.OrderForm.lname.value;
-    if((lname.length == 0) || !!(name_re.test(lname))){
+    if((lname.length == 0) || !(name_re.test(lname))){
         invalidInput = true;
         alertMsg += "Bad input for last name \n"
     }
@@ -33,7 +33,8 @@ async function submitForm(form){
 
     // checks quantity for input less than 1 and if it is a number
     var quantity = document.OrderForm.quantity.value;
-    if ((parseInt(quantity) < 1) || !(Number.isInteger(zip))) {
+    if ((parseInt(quantity) <= 0) || !(Number.isInteger(quantity))) {
+        console.log(typeof(quantity))
         invalidInput = true;
         alertMsg += "Bad input for quantity \n";
     }
@@ -47,12 +48,12 @@ async function submitForm(form){
     }
 
     //check for stress address
-    var address1 = document.OrderForm.address1.value;
-    var address1_re = new RegExp("^[a-zA-Z\s\d\/]*\d[a-zA-Z\s\d\/]*$");
-    if(!(address1_re.test(address1)) || (address1.length == 0)){
-        invalidInput = true;
-        alertMsg += "Bad input for street address \n"
-    }
+    // var address1 = document.OrderForm.address1.value;
+    // var address1_re = new RegExp("^[a-zA-Z\s\d\/]*\d[a-zA-Z\s\d\/]*$");
+    // if(!(address1_re.test(address1)) || (address1.length == 0)){
+    //     invalidInput = true;
+    //     alertMsg += "Bad input for street address \n"
+    // }
 
 
     // checks if state city and zip match an entry in csv file
@@ -65,12 +66,6 @@ async function submitForm(form){
         invalidInput = true;
     }
     
-    // check zip if it has 5 numbers and if it is a number
-    var zip = document.OrderForm.zip.value;
-    if((zip.length != 5) || !(Number.isInteger(zip))){
-        invalidInput = true;
-        alertMsg += "Bad input for zip code \n";
-    }
 
     //check if credit card number has 16 digits and is a number
     var ccnum = document.OrderForm.ccnum.value;
@@ -104,7 +99,7 @@ async function submitForm(form){
 }
 
 async function getData(city, state, zip) {
-    const response = await fetch('./data/test.csv');
+    const response = await fetch('./data/zip_code_database.csv');
     const data = await response.text();
     const rows = data.split('\n')
 
