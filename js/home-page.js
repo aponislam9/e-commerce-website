@@ -129,8 +129,17 @@ window.onload = function() {
 
         // Create the product card
         new_product_card = this.document.createElement("div")
+        new_product_card = this.document.createElement("a")
         new_product_card.classList.add("card")
         new_product_card.classList.add("h-100")
+        new_product_card.href = "product-page.html";
+        new_product_card.onclick=function(e){
+            // var path = e.path[2];
+            // var title = document.getElementByClass(e)
+            var productInfo = e.target.offsetParent.innerText
+            var productName = productInfo.split("$")
+            passValue(productName[0])
+        }
 
         // Create the image container for this product
         image_container = this.document.createElement("a")
@@ -139,6 +148,12 @@ window.onload = function() {
         img.classList.add("card-img-top")
         img.src = product.src;
         img.alt = product.alt;
+        // image_container.href = "#";
+        // image_container.onclick=function(e){
+        //     console.log(e)
+            // var product = e.toElement.text;
+            // passValue(product)
+        // }
 
         // Card body
         card_body = this.document.createElement("div")
@@ -188,6 +203,7 @@ window.onload = function() {
     }
 
 function passValue(product){
+    console.log(product)
     localStorage.setItem("textvalue",product);
     return false;
     // console.log(product)
