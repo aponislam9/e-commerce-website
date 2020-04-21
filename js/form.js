@@ -33,8 +33,7 @@ async function submitForm(form){
 
     // checks quantity for input less than 1 and if it is a number
     var quantity = document.OrderForm.quantity.value;
-    if ((parseInt(quantity) <= 0) || !(Number.isInteger(quantity))) {
-        console.log(typeof(quantity))
+    if ((parseInt(quantity) <= 0) || isNaN(quantity)) {
         invalidInput = true;
         alertMsg += "Bad input for quantity \n";
     }
@@ -69,7 +68,7 @@ async function submitForm(form){
 
     //check if credit card number has 16 digits and is a number
     var ccnum = document.OrderForm.ccnum.value;
-    if ((ccnum.length != 16) && !(Number.isInteger(ccnum))) {
+    if ((ccnum.length != 16) || isNaN(ccnum)) {
         invalidInput = true;
         alertMsg += "Bad input for credit card number \n"
         // alert(alertMsg);
@@ -84,7 +83,7 @@ async function submitForm(form){
     }
 
     var cvv = document.OrderForm.cvv.value;
-    if ((cvv.length != 3) && !(Number.isInteger(cvv))) {
+    if (cvv.length != 3 || isNaN(cvv)) {
         invalidInput = true;
         alertMsg += "Bad input for cvv code \n"
     }

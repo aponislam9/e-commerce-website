@@ -120,6 +120,7 @@ var name = ""
 var price = ""
 var description = ""
 var src = ""
+var pid = ""
 
 window.onload = function() {
     updateVariables();
@@ -139,6 +140,7 @@ function updateVariables(){
             this.price = product_list[i].price;
             this.description = product_list[i].description;
             this.src = product_list[i].src;
+            this.pid = product_list[i].id;
         }
     }
 }
@@ -163,6 +165,12 @@ function updatePage(){
     img.src = this.src
 
 
+}
+
+function addToCart(){
+    document.OrderForm.pid.value = this.pid;
+    document.OrderForm.quantity.value = 1;
+    
 }
 
 

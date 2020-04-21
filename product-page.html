@@ -12,19 +12,16 @@
 </head>
 
 <body>
-    <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/Nuance9-Logo.png" alt="Nuance 9 Logo">
-            </a>
-            <div class="nav-bar-links-container">
-                <div class="topnav" id="nav-bar-tabs">
-                    <a href="index.html">Apparel</a>
-                    <a href="about.html">About</a>
-                </div>
+            <img src="assets/Nuance9-Logo.png" alt="Nuance 9 Logo">
+        
+            <div class="topnav nav-bar-links-container">
+                <a class="active" href="#apparel">Apparel</a>
+                <a href="#collections">Collections</a>
+                <a href="#about">About</a>
             </div>
-
+            
         </div>
     </nav>
 
@@ -52,7 +49,7 @@
                 <p><b>Brand:</b>Nuance9</p>
 
                 
-                <button type="button" class="btn btn-default cart">
+                <button type="button" class="btn btn-default cart" onclick = "addToCart()">
                     Add to cart
                 </button>
 
@@ -69,12 +66,12 @@
         <div class = "form-row">
             <div class="form-group col-md-3">
                 <label for="lname">Product Identifier</label>
-                <input class="form-control" type="text" id="pid" name="pid" required>
+                <input class="form-control" type="text" id="pid" name="pid" disabled>
             </div>
 
             <div class="form-group col-md-1">
                 <label for="quantity">Quantity</label>
-                <input class="form-control" type="number" id="quantity" name="quantity" required  min="1" max="10">
+                <input class="form-control" type="number" id="quantity" name="quantity" required min="1" max="10">
             </div>
         </div>
 
@@ -159,7 +156,7 @@
          <div class="form-row">
              <div class = "form-group col-md-3">
                 <label for="ccnum">Card Card Number</label>
-                <input class="form-control" type="text" id="ccnum" name="ccnum" pattern="[0-9]{16}">
+                <input class="form-control" type="number" id="ccnum" name="ccnum" pattern="[0-9]{16}">
             </div>
 
             <div class="form-group col-md-2">
@@ -169,7 +166,7 @@
 
              <div class="form-group col-md-2">
                 <label for="cvv">CVV</label>
-                <input class="form-control" type="text" id="cvv" name="cvv" placeholder="000" pattern="[0-9]{3}">
+                <input class="form-control" type="number" id="cvv" name="cvv" placeholder="000" pattern="[0-9]{3}">
             </div>
          </div> 
 
