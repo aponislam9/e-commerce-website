@@ -49,8 +49,6 @@ async function submitForm(form){
     //check for stress address
     var address1 = document.OrderForm.address1.value;
     const address1_re = /^\s*\S+(?:\s+\S+){2}$/;
-    console.log(address1_re.test(address1));
-    console.log(address1);
     if(!(address1_re.test(address1))){
         invalidInput = true;
         alertMsg += "Bad input for street address \n"
@@ -78,7 +76,7 @@ async function submitForm(form){
 
     //check credit card expiration date against regex
     var expiration = document.OrderForm.expiration.value
-    const expiration_re = new RegExp("^[0-9]{2}\/[0-9]{2}$")
+    const expiration_re = new RegExp("^(0[1-9]|10|11|12)/[0-9]{2}$")
     if (!(expiration_re.test(expiration))){
         invalidInput = true;
         alertMsg += "Bad input for credit card expiration \n"
