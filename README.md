@@ -5,7 +5,7 @@ Apon Islam:
 Wei Zhang: 24492089
 Jonathan Lun: 47447333
 
-Website url: 
+Website url: https://github.com/weizhang2525/e-commerce-website
 
 General Layout & Design:
     - The site has 3 page. The home page, the about page, and the 
