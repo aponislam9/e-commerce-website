@@ -5,7 +5,7 @@ Apon Islam:
 Wei Zhang: 24492089
 Jonathan Lun: 47447333
 
-Website url: https://github.com/weizhang2525/e-commerce-website
+Website url: http://circinus-3.ics.uci.edu:8080/project1/index.html
 
 General Layout & Design:
     - The site has 3 page. The home page, the about page, and the 
