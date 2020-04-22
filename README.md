@@ -1,11 +1,11 @@
 # e-commerce-website
 
 Robert Malanado: 56105664
-Apon Islam:
+Apon Islam: 17526740
 Wei Zhang: 24492089
 Jonathan Lun: 47447333
 
-Website url: 
+Website url: http://circinus-3.ics.uci.edu:8080/project1/index.html
 
 General Layout & Design:
     - The site has 3 page. The home page, the about page, and the 
