@@ -46,7 +46,7 @@ async function submitForm(form){
 
     //check if phone matches the format 123-456-7890 or +1 123-456-7890
     var phone = document.OrderForm.phone.value;
-    const phone_re = new RegExp("^(\+1\s)?\d{3}-\d{3}-\d{4}$");
+    const phone_re = /^(\+1\s)?\d{3}-\d{3}-\d{4}$/;
     if(!(phone_re.test(phone))){
         invalidInput = true;
         alertMsg += "Bad input for phone number \n"
