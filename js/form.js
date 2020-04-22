@@ -6,6 +6,12 @@ async function submitForm(form){
     var alertMsg = "";
     var name_re = new RegExp("^[A-Za-z]+$");
 
+    var pid = document.OrderForm.pid.value;
+    const idList = ["1A", "2R", "3D", "4F", "5G", "6P", "7S", "8T", "9T", "10S", "11D", "12G"]
+    if((pid.length == 0) || !idList.includes(pid)){
+        invalidInput = true;
+        alertMsg += "Bad input for product id \n"
+    }
     
     //check first name
     var fname = document.OrderForm.fname.value;

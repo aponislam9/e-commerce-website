@@ -192,6 +192,7 @@ function updatePage(){
     var firstImage = document.getElementById("first-image")
     var secondImage = document.getElementById("second-image")
     var thirdImage = document.getElementById("third-image")
+    var id = document.getElementById("pid")
 
     
     name.textContent = this.name;
@@ -200,6 +201,7 @@ function updatePage(){
     firstImage.src = this.srcOne
     secondImage.src = this.srcTwo
     thirdImage.src = this.srcThree
+    id.textContent = "Product ID: " + this.pid;
 
 
 }
