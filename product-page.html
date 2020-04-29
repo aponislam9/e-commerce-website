@@ -68,10 +68,12 @@
                 <h2 id="name"></h2>
                 <p id="prd-color"></p>
                 <p id="description"></p>
-                <img src ="assets/5-star-png-12.png" class="rating">
+                <!-- <img src ="assets/5-stars.png" class="rating"> -->
                 <p id = "pid"></p>
-                <p class="price" id="price"></p>
-        
+                <div class="row price-row">
+                    <p class="price" id="price"></p>
+                    <p class="tax" id="tax">+tax</p>
+                </div>
                 <label for="size">Select a size</label>
 
                 <select id="sizes">
@@ -106,7 +108,7 @@
                 <input class="form-control" type="text" id="pid" name="pid">
             </div>
 
-            <div class="form-group col-md-1">
+            <div class="form-group col-md-2">
                 <label for="quantity">Quantity</label>
                 <input class="form-control" type="number" id="quantity" name="quantity" required min="1" max="10">
             </div>
@@ -158,7 +160,7 @@
                 <input class = "form-control" type="text" id="city" name="city"  required>
             </div>
 
-            <div class="form-group col-md-1">
+            <div class="form-group col-md-2">
                 <label for="state">State</label>
                 <select class="form-control" id="state" required name = "state" onfocus = "generateStateOptions()">
                     
