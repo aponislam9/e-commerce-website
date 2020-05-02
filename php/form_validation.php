@@ -5,7 +5,24 @@
 
     if(isset($_POST["submit"])){
         if(validate_data()){
+            //add customer data
+            $sql = "insert into customers (fname, lname, email, phone, street_address, city, us_state, zip)
+            values (?, ?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->$execute([$fname, $lname, $email, $phone, $address1, $city, $state, $zip]);
 
+
+            //add credit card
+            $cid = $pdo->lastInsertId();
+            $sql = "insert into creditcards () values (?,?,?,?)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([$cid, $ccnum, $ccv, $expiration]);
+
+            //add order
+            $sql = "insert into customers (cid, ccnum, pid, quantity, order_date)
+                values ([$cid, $ccnum, $pid, $quantity, NOW()])";
+
+            
         }
     
 
@@ -86,8 +103,4 @@
         return $data;
     }
 
-    function addToDatabase(){
-        $sql = "INSERT INTO orders (pid, quantity, fname, lname, email, phone, address, city, state, zip, shipping, ccnum, expiration, cvv) VALUES
-        ()";
-    }
 ?>
