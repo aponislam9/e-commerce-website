@@ -1,3 +1,13 @@
+<?php
+
+$conn = mysqli_connect("localhost", "test", "test123", "nuange9");
+
+if(!$conn){
+    echo "Connection Error" . mysqli_connect_error();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +44,6 @@
         <div class="row">
         <div class="col-lg-12 sm-p-100 products">
             <div class="row" id="products-container">
-                
 
                 <?php 
 
