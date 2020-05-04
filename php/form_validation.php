@@ -1,10 +1,11 @@
 <?php
     require_once "pdo.php";
-    $fnameError = $lnameError = $emailError = $pidError = $quantityError = $phoneError = $addressError = $stateError = $ccnumError = $cvvError = $expirationError = "";
+    // $fnameError = $lnameError = $emailError = $pidError = $quantityError = $phoneError = $addressError = $stateError = $ccnumError = $cvvError = $expirationError = "";
     $fname = $lname= $email = $pid = $quantity= $phone = $address1 = $address2 = $state = $zip = $city = $shipping = $ccnum = $cvv = $expiration = "";
 
-
+    //if ajax request is a post request
     if(isset($_POST["submit"])){
+        //data is successfully added to database, redirect to confirmation page
         if(!validate_data()){
             echo "no bad data";
 
@@ -27,11 +28,10 @@
             $stmt = $pdo->prepare($sql);
             $stmt->execute(array(':cid'=>$cid, ':ccnum'=>$ccnum, ':pid'=>$pid, ':quantity'=>$quantity));
 
-            
+            // $sql->close();
         }
-        else{
-            echo "invalid input";
-        }
+        //there is bad data, errors will
+       
     
 
     }
@@ -43,43 +43,40 @@
         $GLOBALS['pid']= format_data($_POST["pid"]);
         $GLOBALS['quantity'] = format_data($_POST["quantity"]);
 
-        // echo format_data($_POST["firstName"]);
-
         //  //check first name data
-        $GLOBALS['fname'] = format_data($_POST["firstName"]);
+        $GLOBALS['fname'] = format_data($_POST["fname"]);
         if (empty($GLOBALS['fname']) or !preg_match("/^[A-Za-z]+$/", $GLOBALS['fname'])) {
-            $GLOBALS['fnameError'] = "Bad data for first name";
             $bad_data = True;
-            echo $GLOBALS['fnameError'];
+            echo "<p class = 'error'>Bad data for first name</p>";
         }
 
         // //check last name data
-        $GLOBALS['lname'] = format_data($_POST["lastName"]);
+        $GLOBALS['lname'] = format_data($_POST["lname"]);
         if (empty($GLOBALS['lname']) or !preg_match("/^[A-Za-z]+$/", $GLOBALS['lname'])) {
-            $GLOBALS['lnameError']= "Bad data for last name";
             $bad_data = True;
-            echo $GLOBALS['lnameError'];
+            echo "<p class = 'error'>Bad data for last name field</p>";
+
         }
 
         $GLOBALS['email'] = format_data($_POST["email"]);
         if (!filter_var($GLOBALS['email'], FILTER_SANITIZE_EMAIL)) {
-            $GLOBALS['emailError'] = "Bad data for email";
             $bad_data = True;
-            echo $GLOBALS['emailError'];
+            echo "<p class = 'error'>Bad data for email field</p>";
+
         }
 
         $GLOBALS['phone'] = format_data($_POST["phone"]);
         if (empty($GLOBALS['phone']) or !preg_match("/^(\+1\s)?\d{3}-\d{3}-\d{4}$/", $GLOBALS['phone'])) {
-            $GLOBALS['phoneError'] = "Bad data for phone";
             $bad_data = True;
-            echo $GLOBALS['phoneError'];
+            echo "<p class = 'error'>Bad data for phone field</p>";
+
         }
 
         $GLOBALS['address1'] = format_data($_POST["address1"]);
         if (empty($GLOBALS['address1']) or !preg_match("/^\s*\S+(?:\s+\S+){2}$/", $GLOBALS['address1'])) {
-            $GLBOALS['addressError'] = "Bad data for phone";
             $bad_data = True;
-            echo $GLBOALS['addressError'];
+            echo "<p class = 'error'>Bad data for address field</p>";
+
         }
 
 
@@ -90,28 +87,26 @@
 
         $GLOBALS['ccnum'] = format_data($_POST["ccnum"]);
         if (!is_numeric($GLOBALS['ccnum']) or strlen($GLOBALS['ccnum']) != 16) {
-            $GLBOALS['ccnumError'] = "Bad data for credit card number";
             $bad_data = True;
-            echo $GLBOALS['ccnumError'];
+            echo "<p class = 'error'>Bad data for credit card number field</p>";
+
         }
 
         $GLOBALS['cvv'] = format_data($_POST["cvv"]);
         if (!is_numeric($GLOBALS['cvv']) or strlen($GLOBALS['cvv']) != 3) {
-            $GLBOALS['cvvError'] = "Bad data for cvv";
             $bad_data = True;
-            echo $GLBOALS['cvvError'];
+            echo "<p class = 'error'>Bad data for cvv field</p>";
+
         }
 
         $GLOBALS['expiration'] = format_data($_POST["expiration"]);
         if (empty($GLOBALS['expiration']) or !preg_match("/^(0[1-9]|10|11|12)\/[0-9]{2}$/", $GLOBALS['expiration'])) {
-            $GLBOALS['expirationError'] = "Bad data for expiration date";
             $bad_data = True;
-            echo $GLBOALS['expirationError'];
-        }
+            echo "<p class = 'error'>Bad data for expiration field</p>";
 
+        }
         return $bad_data;
     }
-
 
     //formulate the data
     function format_data($data){
