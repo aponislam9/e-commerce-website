@@ -41,7 +41,7 @@
     )";
     $pdo->exec($sql);
 
-    $sql = "CREATE TABLE IF NOT EXISTS products
+    $sql = "CREATE TABLE IF NOT EXISTS products(
         pid INT(5) AUTO_INCREMENT PRIMARY KEY,
         pname VARCHAR(50) NOT NULL,
         pprice VARCHAR(10) NOT NULL,
