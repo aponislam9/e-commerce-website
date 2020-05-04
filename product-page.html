@@ -156,12 +156,12 @@
         <div class = "form-row">
             <div class="form-group col-md-3">
                 <label for="fname">First Name</label>
-                <input type="text" class = "form-control" id="fname"  name = "firstName">
+                <input type="text" class = "form-control" id="fname"  name = "firstName" required >
             </div>
 
             <div class="form-group col-md-3">
                 <label for="lname">Last Name</label>
-                <input type="text" class = "form-control" id="lname" name = "lastName">
+                <input type="text" class = "form-control" id="lname" name = "lastName" required>
             </div>
         </div>
        
@@ -235,7 +235,7 @@
          <div class="form-row">
              <div class = "form-group col-md-3">
                 <label for="ccnum">Card Card Number</label>
-                <input class="form-control" type="text" id="ccnum" name="ccnum" pattern="[0-9]{16}">
+                <input class="form-control" type="text" id="ccnum" name="ccnum" pattern="[0-9]{16}" required>
             </div>
 
             <div class="form-group col-md-2">
@@ -245,7 +245,7 @@
 
              <div class="form-group col-md-2">
                 <label for="cvv">CVV</label>
-                <input class="form-control" type="text" id="cvv" name="cvv" placeholder="000" pattern="[0-9]{3}">
+                <input class="form-control" type="text" id="cvv" name="cvv" placeholder="000" pattern="[0-9]{3}" required>
             </div>
          </div> 
 

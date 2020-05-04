@@ -7,8 +7,6 @@
     if(isset($_POST["submit"])){
         //data is successfully added to database, redirect to confirmation page
         if(!validate_data()){
-            echo "no bad data";
-
             //add customer data
             $sql = "INSERT INTO customers (fname, lname, email, phone, street_address, city, us_state, zip)
             VALUES (:fname, :lname, :email, :phone, :street_address, :city, :us_state, :zip)";
@@ -28,6 +26,7 @@
             $stmt = $pdo->prepare($sql);
             $stmt->execute(array(':cid'=>$cid, ':ccnum'=>$ccnum, ':pid'=>$pid, ':quantity'=>$quantity));
 
+            $pdo = null;
             // $sql->close();
         }
         //there is bad data, errors will
@@ -80,9 +79,20 @@
         }
 
 
+
         $GLOBALS['city'] = format_data($_POST["city"]);
+        if (empty($GLOBALS['city'])) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for city field</p>";
+        }
+
         $GLOBALS['state'] = format_data($_POST["state"]);
+
         $GLOBALS['zip'] = format_data($_POST["zip"]);
+        if (empty($GLOBALS['zip'])) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for zip field</p>";
+        }
         
 
         $GLOBALS['ccnum'] = format_data($_POST["ccnum"]);
