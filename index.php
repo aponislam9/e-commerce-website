@@ -1,12 +1,4 @@
-<?php
 
-$conn = mysqli_connect("localhost", "test", "test123", "nuange9");
-
-if(!$conn){
-    echo "Connection Error" . mysqli_connect_error();
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,25 +37,47 @@ if(!$conn){
         <div class="col-lg-12 sm-p-100 products">
             <div class="row" id="products-container">
 
-                <?php 
+            <?php
+                $mysqli = new mysqli("localhost:8111", "user", "test123", "nuance9");
+                $table = "products";
 
-                echo "test"
-                ?>
+                $products = $mysqli->query("SELECT * FROM $table");
+
+                while($data = $products->fetch_assoc()){
+
+                    $imageSource = 'assets/' . $data['image'];
+
+                    echo "<div class='col-lg-6 col-md-6 mb-6 product-card'>";
+                    echo "  <div class='card h-100' href='product-page.html' onclick='passValue({$data['name']})'>";
+                    echo "      <a href='#' class='image-container'>";
+                    echo "          <img class='card-img-top' src='{$imageSource}' alt=''>";
+                    echo "      </a>";
+                    echo "      <div class='card-body'>";
+                    echo "    era      <h4 class='card-title' href='product-page.html' onclick='passValue({$data['name']})'>";
+                    echo "              <a href='#' class='product-title'>{$data['name']}</a>";
+                    echo "          </h4>";
+                    echo "          <h5 class='card-cost'>{$data['price']}</h5>";
+                    echo "          <p class='card-text'>{$data['description']}</p>";
+                    echo "      </div>";
+                    echo "  </div>";
+                    echo "</div>"; 
+                }
+            ?>
 
         <!-- [DON'T DELETE THIS, ITS A REFERNCE] ------------------
     
             <div class="col-lg-6 col-md-6 mb-6 product-card">
                 <div class="card h-100">
-                <a href="#" class="image-container">
-                    <img class="card-img-top" src="assets/Product-1-v0.jpg" alt="">
-                </a>
-                <div class="card-body">
-                    <h4 class="card-title">
-                        <a href="#" class="product-title">Amalgam Fleece+Snyth</a>
-                    </h4>
-                    <h5 class="card-cost">$224.99</h5>
-                    <p class="card-text">An amalgamation of different materials stiched together to form the pertect hoodie.</p>
-                </div>
+                    <a href="#" class="image-container">
+                        <img class="card-img-top" src="assets/Product-1-v0.jpg" alt="">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#" class="product-title">Amalgam Fleece+Snyth</a>
+                        </h4>
+                        <h5 class="card-cost">$224.99</h5>
+                        <p class="card-text">An amalgamation of different materials stiched together to form the pertect hoodie.</p>
+                    </div>
                 </div>
             </div>
             
