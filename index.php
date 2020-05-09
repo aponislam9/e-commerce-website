@@ -183,6 +183,16 @@
                     <h5 class="card-cost">$224.99</h5>
                     <p class="card-text">An amalgamation of different materials stiched together to form the pertect hoodie.</p>
                 </div>
+                    <a href="#" class="image-container">
+                        <img class="card-img-top" src="assets/Product-1-v0.jpg" alt="">
+                    </a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="#" class="product-title">Amalgam Fleece+Snyth</a>
+                        </h4>
+                        <h5 class="card-cost">$224.99</h5>
+                        <p class="card-text">An amalgamation of different materials stiched together to form the pertect hoodie.</p>
+                    </div>
                 </div>
             </div>
             

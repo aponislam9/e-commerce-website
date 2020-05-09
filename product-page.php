@@ -13,6 +13,45 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/product-info.js"></script>
     <script src = "js/form.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("form").submit(function(event){
+                event.preventDefault();
+                var fname = $('#fname').val();
+                var lname = $('#lname').val();
+                var email = $('#email').val();
+                var phone = $('#phone').val();
+                var address1 = $('#address1').val();
+                var city = $('#city').val();
+                var state = $('#state').val();
+                var zip = $('#zip').val();
+                var ccnum = $('#ccnum').val();
+                var expiration = $('#expiration').val();
+                var cvv = $('#cvv').val();
+                var submit = $('#submit').val();
+                var pid = $('#pid').val();
+                var quantity = $('#quantity').val();
+                $('.error-message').load("php/form_validation.php", {
+
+                    fname: fname,
+                    lname: lname,
+                    email: email,
+                    phone: phone,
+                    address1: address1,
+                    city: city,
+                    state: state,
+                    zip: zip,
+                    ccnum: ccnum,
+                    expiration: expiration,
+                    cvv: cvv,
+                    submit: submit,
+                    pid: pid,
+                    quantity: quantity
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -217,10 +256,10 @@
 
     </div>
 
-     <form class = "container form" onsubmit="submitForm(this); return false;" method="post" enctype="text/plain" name = "OrderForm"  action="mailto:product@nuance9.com">
+     <form class = "container form">
         <div class = "form-row">
             <div class="form-group col-md-3">
-                <label for="lname">Product Identifier</label>
+                <label for="pid">Product Identifier</label>
                 <input class="form-control" type="text" id="pid" name="pid">
             </div>
 
@@ -278,9 +317,10 @@
 
             <div class="form-group col-md-2">
                 <label for="state">State</label>
-                <select class="form-control" id="state" required name = "state" onfocus = "generateStateOptions()">
+                <!-- <select class="form-control" id="state" required name = "state" onfocus = "generateStateOptions()">
                     
-                </select>
+                </select> -->
+                <input class="form-control" type=" text" id="state" name="state">
             </div>
 
             <div class="form-group col-md-2">
@@ -293,17 +333,17 @@
             <div class = "form-row">
 
                 <div class="form-group col-md-3">
-                    <input type="radio" id="standard" name="shipping">
+                    <input type="radio" id="standard" name="shipping" value = "standard">
                     <label for="standard">Standard Shipping</label>
                 </div>
 
                 <div class = "form-group col-md-3">
-                    <input type="radio" id="two-day" name="shipping">
+                    <input type="radio" id="two-day" name="shipping" value = "two-day">
                     <label for="two-day">Two-Day Shipping</label>
                 </div>
 
                 <div class="form-group col-md-3">
-                    <input type="radio" id="overnight" name="shipping" checked>
+                    <input type="radio" id="overnight" name="shipping" checked value = "overnight">
                     <label for="two-day">Overnight Shipping</label>
                 </div>
             </div>
@@ -311,21 +351,22 @@
          <div class="form-row">
              <div class = "form-group col-md-3">
                 <label for="ccnum">Card Card Number</label>
-                <input class="form-control" type="text" id="ccnum" name="ccnum" pattern="[0-9]{16}">
+                <input class="form-control" type="text" id="ccnum" name="ccnum" pattern="[0-9]{16}" required>
             </div>
 
             <div class="form-group col-md-2">
                 <label for="expiration">Expiration </label>
                 <input class="form-control" type="text" id="expiration" name="expiration" placeholder= "01/10" required pattern="[0-9]{2}/[0-9]{2}">
-             </div>
+            </div>
 
              <div class="form-group col-md-2">
                 <label for="cvv">CVV</label>
-                <input class="form-control" type="text" id="cvv" name="cvv" placeholder="000" pattern="[0-9]{3}">
+                <input class="form-control" type="text" id="cvv" name="cvv" placeholder="000" pattern="[0-9]{3}" required>
             </div>
          </div> 
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id = "submit" type="submit" class="btn btn-primary" name ="submit">Submit</button>
+        <p class = "error-message"></p>
     </form>
 
 </body>
