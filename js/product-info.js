@@ -141,6 +141,9 @@ var product = localStorage.getItem("textvalue")
 product = product.trim()
 
 
+// GO INTO HPDO.PHP and return the array into this page
+
+
 var name = ""
 var price = ""
 var description = ""
@@ -154,17 +157,34 @@ var stateSet = false
 var zipSet = false
 
 window.onload = function() {
+
+    // this.phpArray = "<?php php_func();?>";
     
-    updateVariables();
+    // console.log(this.phpArray)
+    
+    console.log(this.product);
+    createCookie("gfg",this.product,10);
+    // Unlock bottom
+    // updateVariables();
+
     // logInfo();
-    updatePage();
+
+    // Unlock bottom
+    // updatePage();
 
     ajaxUpdateTaxAmmount();
 };
 
+function createCookie(name, value,days){
+    var expires;
 
+    console.log(value);
+    document.cookie = escape(name)+"="+escape(value)
+
+}
 function updateVariables(){
 //intializes the information
+    
     for(var i=0;i<product_list.length; i++) {
         if (this.product === product_list[i].name){
             this.name = product_list[i].name;

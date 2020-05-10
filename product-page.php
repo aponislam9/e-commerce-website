@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +16,14 @@
 </head>
 
 <body>
+
+    <script>
+
+        var product = localStorage.getItem("textvalue")
+        console.log("YEP")
+        console.log(product);
+
+    </script>
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
@@ -38,11 +47,117 @@
     <div class="Product">
         <div class="row">
             <div class="col-md-5">
+                <?php
+
+                    require 'php/product-database.php';
+
+                    try{
+                        $servername = "localhost";
+                        $username = "test";
+                        $password = "test1234";
+                        $database = "Products";
+                
+                        $connection = mysqli_connect($servername,$username,$password, $database);
+                
+                        if(!$connection){
+                            echo 'COULD NOT CONNECT';
+                            die('Could not connect:' . mysql_error());
+                        }
+                
+                  
+                
+                    }
+                
+                    catch(PDOException $e)
+                    {
+                        echo $e-> getMessage();
+                    }
+
+                    
+                
+
+                    
+                    $product = $_COOKIE["gfg"];
+                    
+                    echo $product;
+
+                    $sql = "SELECT * FROM prodTest WHERE pname ="."'".strval($product)."'"."";
+
+                    
+                    foreach($connection->query($sql) as $row){
+                        
+
+                        echo "<div id='carouselExampleControls' class='carousel slide' data-ride='carousel'>";
+                        echo "<div class='carousel-inner'>";
+                          echo "<div class='carousel-item active'>";
+                            
+                            echo "<img class='d-block w-100' src=".$row["srcOne"]." alt='First slide'>";
+                          echo "</div>";
+
+                          echo "<div class='carousel-item'>";
+                            echo "<img class='d-block w-100' src=".$row["srcTwo"]." alt='Second slide'>";
+                          echo "</div>";
+                          echo "<div class='carousel-item'>";
+                            echo "<img class='d-block w-100' src=".$row["srcThree"]." alt='Third slide'>";
+                          echo "</div>";
+                        echo "</div>";
+
+                        echo "<a class='carousel-control-prev' href='#carouselExampleControls' role='button' data-slide='prev'>";
+                          echo "<span class='carousel-control-prev-icon' aria-hidden='true'></span>";
+                          echo "<span class='sr-only'>Previous</span>";
+                        echo "</a>";
+                        echo "<a class='carousel-control-next' href='#carouselExampleControls' role='button' data-slide='next'>";
+                          echo "<span class='carousel-control-next-icon' aria-hidden='true'></span>";
+                          echo "<span class='sr-only'>Next</span>";
+                        echo "</a>";
+                      echo "</div>";
+                      echo "</div>";
+
+
+
+                      echo "<div class='col-md-7'>";
+                      echo "<h2 id='name'>" .$row["pname"]. "</h2>";
+                      echo "<p id='prd-color'></p>";
+                      echo "<p id='description'> ".$row["descr"]."</p>";
+                        // echo "<img src ='assets/5-stars.png' class='rating'>";
+                      echo "<p id = 'pid'></p>";
+                      echo "<div class='row price-row'>";
+                          echo "<p class='price' id='price'>" .$row["price"]. "</p>";
+                          echo "<p class='tax' id='tax'>+tax</p>";
+                      echo "</div>";
+
+                      echo "<label for='size'>Select a size</label>";
+      
+                      echo "<select id='sizes'>";
+                          echo "<option value='Small'>Small</option>";
+                          echo "<option value='Medium'>Medium</option>";
+                          echo "<option value='large'>Large</option>";
+                          
+                      echo "</select>";
+                      echo "<p><b>Brand:</b>Nuance9</p>";
+      
+                      
+                      echo "<button type='button' class='btn btn-default cart'>";
+                          echo "Add to cart";
+                      echo "</button>";
+      
+      
+                  echo "</div>";
+      
+                    }
+
+                    // echo $row["pname"];
+                    // echo $row["pid"];
+
+
+                ?>
                     <!-- Carousel was taken from the Bootstrap website with modifcations -->
                     <!-- <img id="img" class="d-block w-100" alt="Product img"> -->
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    
+                    <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                           <div class="carousel-item active">
+                            
                             <img class="d-block w-100" id="first-image" alt="First slide">
                           </div>
                           <div class="carousel-item">
@@ -60,15 +175,16 @@
                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                           <span class="sr-only">Next</span>
                         </a>
-                      </div>        
+                      </div>         -->
                     
                               
-            </div>
-            <div class="col-md-7">
+            <!-- </div> -->
+            
+            <!-- <div class="col-md-7">
                 <h2 id="name"></h2>
                 <p id="prd-color"></p>
                 <p id="description"></p>
-                <!-- <img src ="assets/5-stars.png" class="rating"> -->
+                
                 <p id = "pid"></p>
                 <div class="row price-row">
                     <p class="price" id="price"></p>
@@ -90,9 +206,9 @@
                 </button>
 
 
-            </div>
+            </div> -->
 
-        </div>
+        <!-- </div> -->
            
     <!-- End of Product Info -->
 
