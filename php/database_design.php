@@ -42,11 +42,24 @@
     $pdo->exec($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS products(
-        pid INT(5) AUTO_INCREMENT PRIMARY KEY,
+        pid VARCHAR(5) NOT NULL PRIMARY KEY,
         pname VARCHAR(50) NOT NULL,
-        pprice VARCHAR(10) NOT NULL,
-        descripton VARCHAR(50) NOT NULL,
-        pimage VARCHAR(50) NOT NULL
+        pprice VARCHAR(10) NOT NULL
     )";
+    $pdo->exec($sql);
+
+   $sql = "INSERT INTO products (pid, pname, pprice) VALUES
+        ('1A','Amalgam Fleece+Snyth','$174.99'),
+        ('2R','Retro Walkers','$89.99'),
+        ('3D','Deathlyhallow 3','$49.99'),
+        ('4F','Featuring Teddy Roosevelt', '$19.99'),
+        ('5G','Graphic Design Is My Passion','$74.99'),
+        ('6P','P.A.N.T.S','$79.99'),
+        ('7S','Subtle Arachnid','$39.99'),
+        ('8T','Tactical Cubeta','$29.99'),
+        ('9T','The Vest','$54.99'),
+        ('10S','Samura','$59.99'),
+        ('11D','Drifter','$64.99'),
+        ('12G','Godzilla','$24.99')";
     $pdo->exec($sql);
 ?>
