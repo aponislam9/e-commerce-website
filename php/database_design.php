@@ -22,10 +22,17 @@
 
     $sql = "CREATE TABLE IF NOT EXISTS creditcards(
         cid INT(5) NOT NULL,
-        ccnum VARCHAR(16) NOT NULL PRIMARY KEY,
+        ccnum VARCHAR(16) NOT NULL,
         cvv VARCHAR(4) NOT NULL,
         expiration VARCHAR(5) NOT NULL,
         FOREIGN KEY (cid) REFERENCES customers(cid)
+    )";
+    $pdo->exec($sql);
+
+     $sql = "CREATE TABLE IF NOT EXISTS products(
+        pid VARCHAR(5) PRIMARY KEY,
+        pname VARCHAR(50) NOT NULL,
+        pprice VARCHAR(10) NOT NULL
     )";
     $pdo->exec($sql);
 
@@ -37,16 +44,11 @@
         quantity INT(2) NOT NULL,
         order_date DATETIME NOT NULL,
         FOREIGN KEY (cid) REFERENCES customers(cid),
-        FOREIGN KEY (ccnum) REFERENCES creditcards(ccnum)
+        FOREIGN KEY (pid) REFERENCES products(pid)
     )";
     $pdo->exec($sql);
 
-    $sql = "CREATE TABLE IF NOT EXISTS products(
-        pid VARCHAR(5) NOT NULL PRIMARY KEY,
-        pname VARCHAR(50) NOT NULL,
-        pprice VARCHAR(10) NOT NULL
-    )";
-    $pdo->exec($sql);
+   
 
    $sql = "INSERT INTO products (pid, pname, pprice) VALUES
         ('1A','Amalgam Fleece+Snyth','$174.99'),

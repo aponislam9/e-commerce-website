@@ -45,9 +45,8 @@
             echo "<p class = 'error'>Bad data for product id</p>";
         }
         else{
-            $stmt = $GLOBALS['pdo']->prepare('SELECT * FROM table WHERE ID=?');
-            $stmt->bindParam(1, $GLOBALS['pid'], PDO::PARAM_INT);
-            $stmt->execute();
+            $stmt = $GLOBALS['pdo']->prepare('SELECT * FROM products WHERE pid = :ID');
+            $stmt->execute(array('ID' => $GLOBALS['pid']));
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             if(!$row){
                 $bad_data = True;
@@ -58,6 +57,10 @@
 
 
         $GLOBALS['quantity'] = format_data($_POST["quantity"]);
+        if(empty($GLOBALS['quantity']) or !is_numeric($GLOBALS['quantity'])){
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for quantity</p>";
+        }
 
         //  //check first name data
         $GLOBALS['fname'] = format_data($_POST["fname"]);
