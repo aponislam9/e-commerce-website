@@ -1,9 +1,9 @@
 <?php
     require_once "pdo.php";
 
-    // $sql = "CREATE DATABASE IF NOT EXISTS Nuance9";
-    // $pdo -> exec($sql);
-    // echo "Nuance9 database created";
+    $sql = "CREATE DATABASE IF NOT EXISTS Nuance9";
+    $pdo -> exec($sql);
+    echo "Nuance9 database created";
 
     $sql = "CREATE TABLE IF NOT EXISTS customers(
         cid INT(5) AUTO_INCREMENT,
