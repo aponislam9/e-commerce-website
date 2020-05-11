@@ -1,6 +1,6 @@
 <?php
     require_once "pdo.php";
-    // $fnameError = $lnameError = $emailError = $pidError = $quantityError = $phoneError = $addressError = $stateError = $ccnumError = $cvvError = $expirationError = "";
+    $fnameError = $lnameError = $emailError = $pidError = $quantityError = $phoneError = $addressError = $stateError = $ccnumError = $cvvError = $expirationError = "";
     $fname = $lname= $email = $pid = $quantity= $phone = $address1 = $address2 = $state = $zip = $city = $shipping = $ccnum = $cvv = $expiration = "";
 
     //if ajax request is a post request

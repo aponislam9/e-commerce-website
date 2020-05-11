@@ -1,3 +1,13 @@
+<?php
+
+$product = $_COOKIE["gfg"];
+echo "afabfejhaf";
+echo $product;
+echo "faefafa";
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +22,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/product-info.js"></script>
     <script src="js/form.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        var product = localStorage.getItem("textvalue")
+        console.log("YEP")
+        console.log(product);
+    </script>
+
     <script>
         $(document).ready(function() {
             $("form").submit(function(event) {
@@ -29,7 +48,7 @@
                 var expiration = $('#expiration').val();
                 var cvv = $('#cvv').val();
                 var submit = $('#submit').val();
-                var pid = $('#productid').val();
+                var pid = $('#pid').val();
                 var quantity = $('#quantity').val();
                 var shipping = $("input[name='shipping']:checked").val();
                 $('.error-message').load("php/form_validation.php", {
@@ -52,15 +71,6 @@
                 });
             });
         });
-    </script>
-</head>
-
-<body>
-
-    <script>
-        var product = localStorage.getItem("textvalue")
-        console.log("YEP")
-        console.log(product);
     </script>
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -87,12 +97,27 @@
             <div class="col-md-5">
                 <?php
 
+                // Dont think I need this
+
+                $test = '<script>
+                    
+                        var product = localStorage.getItem("textvalue")
+
+
+                        
+                        document.writeln(product);
+                        
+                        </script>';
+
+
+
+                // Database stuff. Connects
                 require 'php/product-database.php';
 
                 try {
                     $servername = "localhost";
-                    $username = "user";
-                    $password = "test123";
+                    $username = "test";
+                    $password = "test1234";
                     $database = "Products";
 
                     $connection = mysqli_connect($servername, $username, $password, $database);
@@ -105,17 +130,16 @@
                     echo $e->getMessage();
                 }
 
+                //Gets the product based off the URL
+
+                $product = $_GET['pr'];
+
+
+                $sql = "SELECT * FROM prodTest WHERE pname =" . "'" . strval($product) . " '" . "";
 
 
 
-
-                $product = $_COOKIE["gfg"];
-
-                echo $product;
-
-                $sql = "SELECT * FROM prodTest WHERE pname =" . "'" . strval($product) . "'" . "";
-
-
+                //Gets the row and populates the page with information
                 foreach ($connection->query($sql) as $row) {
 
 
@@ -252,7 +276,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="pid">Product Identifier</label>
-                        <input class="form-control" type="text" id="productid" name="pid">
+                        <input class="form-control" type="text" id="pid" name="pid">
                     </div>
 
                     <div class="form-group col-md-2">
