@@ -2,6 +2,8 @@
     
     require 'php/product-database.php'
 
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -23,6 +25,7 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script>
 
+        // Get the product name from image click of product and routes to next page adding product into URL
         function getProduct(p) {
             
             var tempNode = $("div");
@@ -41,18 +44,29 @@
 
             var finalProduct = (lastHTML[1].innerHTML);
 
-            // var almostTitle = str.split("product-title");
+            
+            var url = "product-page.php" + '?pr=' + finalProduct;
+
+            window.location.replace(url);
+            
 
             passValue(finalProduct);
             
         }
 
+        //Bascically the top function but for product name click
         function passValue(product){
-            console.log(product)
+
+            var url = "product-page.php" + '?pr=' + finalProduct;
+
+            
+            // console.log(product)
             localStorage.setItem("textvalue",product);
-            console.log(product)
+                
+
+
             return false;
-    // console.log(product)
+ 
 }
 
     </script>
@@ -84,6 +98,8 @@
 
 
             <?php 
+
+                // include "php/homepage.php";
 
                 
                 $products = array();
@@ -137,13 +153,14 @@
                         //     var product = e.toElement.text;
                         //     passValue(product)
                         $title = $row['pname'];
-                        echo "  <div class='card h-100' href='product-page.php' onclick='getProduct(this)'>";
-                        echo "      <a href='product-page.php' class='image-container'>";
+                        echo "  <div class='card h-100' onclick='getProduct(this)'>";
+                        echo "      <a href='#' class='image-container'>";
                         echo "          <img class='card-img-top' src='".$row["srcOne"]."' alt=''>";
                         echo "      </a>";
                         echo "      <div class='card-body'>";
-                        echo "    era      <h4 class='card-title' href='product-page.php' onclick='passValue({$row['pname']})'>";
-                        echo "              <a href='product-page.php' id='title' class='product-title'>{$row['pname']}</a>";
+                        // echo "         <h4 class='card-title' onclick='passValue({$row['pname']})'>";
+                        echo "         <h4 class='card-title' onclick='passValue({$row['pname']})'>";
+                        echo "              <a href='#' id='title' class='product-title'>{$row['pname']}</a>";
                         echo "          </h4>";
                         echo "          <h5 class='card-cost'>{$row['price']}</h5>";
                         echo "          <p class='card-text'>{$row['descr']}</p>";
@@ -166,7 +183,7 @@
                     echo $e-> getMessage();
                 }
 
-            ?>
+            // ?>
         </div>
 
         <!-- [DON'T DELETE THIS, ITS A REFERNCE] ------------------
@@ -183,16 +200,6 @@
                     <h5 class="card-cost">$224.99</h5>
                     <p class="card-text">An amalgamation of different materials stiched together to form the pertect hoodie.</p>
                 </div>
-                    <a href="#" class="image-container">
-                        <img class="card-img-top" src="assets/Product-1-v0.jpg" alt="">
-                    </a>
-                    <div class="card-body">
-                        <h4 class="card-title">
-                            <a href="#" class="product-title">Amalgam Fleece+Snyth</a>
-                        </h4>
-                        <h5 class="card-cost">$224.99</h5>
-                        <p class="card-text">An amalgamation of different materials stiched together to form the pertect hoodie.</p>
-                    </div>
                 </div>
             </div>
             
