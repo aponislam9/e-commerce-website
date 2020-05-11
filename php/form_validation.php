@@ -88,79 +88,79 @@
             echo "<p class = 'error'>Bad data for quantity</p>";
         }
 
-        // //  //check first name data
-        // $GLOBALS['fname'] = format_data($_POST["fname"]);
-        // if (empty($GLOBALS['fname']) or !preg_match("/^[A-Za-z]+$/", $GLOBALS['fname'])) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for first name</p>";
-        // }
+        //  //check first name data
+        $GLOBALS['fname'] = format_data($_POST["fname"]);
+        if (empty($GLOBALS['fname']) or !preg_match("/^[A-Za-z]+$/", $GLOBALS['fname'])) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for first name</p>";
+        }
 
-        // // //check last name data
-        // $GLOBALS['lname'] = format_data($_POST["lname"]);
-        // if (empty($GLOBALS['lname']) or !preg_match("/^[A-Za-z]+$/", $GLOBALS['lname'])) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for last name field</p>";
+        // //check last name data
+        $GLOBALS['lname'] = format_data($_POST["lname"]);
+        if (empty($GLOBALS['lname']) or !preg_match("/^[A-Za-z]+$/", $GLOBALS['lname'])) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for last name field</p>";
 
-        // }
+        }
 
-        // $GLOBALS['email'] = format_data($_POST["email"]);
-        // if (!filter_var($GLOBALS['email'], FILTER_SANITIZE_EMAIL)) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for email field</p>";
+        $GLOBALS['email'] = format_data($_POST["email"]);
+        if (!filter_var($GLOBALS['email'], FILTER_SANITIZE_EMAIL)) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for email field</p>";
 
-        // }
+        }
 
-        // $GLOBALS['phone'] = format_data($_POST["phone"]);
-        // if (empty($GLOBALS['phone']) or !preg_match("/^(\+1\s)?\d{3}-\d{3}-\d{4}$/", $GLOBALS['phone'])) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for phone field</p>";
+        $GLOBALS['phone'] = format_data($_POST["phone"]);
+        if (empty($GLOBALS['phone']) or !preg_match("/^(\+1\s)?\d{3}-\d{3}-\d{4}$/", $GLOBALS['phone'])) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for phone field</p>";
 
-        // }
+        }
 
-        // $GLOBALS['address1'] = format_data($_POST["address1"]);
-        // if (empty($GLOBALS['address1']) or !preg_match("/^\s*\S+(?:\s+\S+){2}$/", $GLOBALS['address1'])) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for address field</p>";
+        $GLOBALS['address1'] = format_data($_POST["address1"]);
+        if (empty($GLOBALS['address1']) or !preg_match("/^\s*\S+(?:\s+\S+){2}$/", $GLOBALS['address1'])) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for address field</p>";
 
-        // }
+        }
 
 
 
-        // $GLOBALS['city'] = format_data($_POST["city"]);
-        // if (empty($GLOBALS['city'])) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for city field</p>";
-        // }
+        $GLOBALS['city'] = format_data($_POST["city"]);
+        if (empty($GLOBALS['city'])) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for city field</p>";
+        }
 
-        // $GLOBALS['state'] = format_data($_POST["state"]);
+        $GLOBALS['state'] = format_data($_POST["state"]);
 
-        // $GLOBALS['zip'] = format_data($_POST["zip"]);
-        // if (empty($GLOBALS['zip'])) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for zip field</p>";
-        // }
+        $GLOBALS['zip'] = format_data($_POST["zip"]);
+        if (empty($GLOBALS['zip'])) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for zip field</p>";
+        }
         
 
-        // $GLOBALS['ccnum'] = format_data($_POST["ccnum"]);
-        // if (!is_numeric($GLOBALS['ccnum']) or strlen($GLOBALS['ccnum']) != 16) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for credit card number field</p>";
+        $GLOBALS['ccnum'] = format_data($_POST["ccnum"]);
+        if (!is_numeric($GLOBALS['ccnum']) or strlen($GLOBALS['ccnum']) != 16) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for credit card number field</p>";
 
-        // }
+        }
 
-        // $GLOBALS['cvv'] = format_data($_POST["cvv"]);
-        // if (!is_numeric($GLOBALS['cvv']) or strlen($GLOBALS['cvv']) != 3) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for cvv field</p>";
+        $GLOBALS['cvv'] = format_data($_POST["cvv"]);
+        if (!is_numeric($GLOBALS['cvv']) or strlen($GLOBALS['cvv']) != 3) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for cvv field</p>";
 
-        // }
+        }
 
-        // $GLOBALS['expiration'] = format_data($_POST["expiration"]);
-        // if (empty($GLOBALS['expiration']) or !preg_match("/^(0[1-9]|10|11|12)\/[0-9]{2}$/", $GLOBALS['expiration'])) {
-        //     $bad_data = True;
-        //     echo "<p class = 'error'>Bad data for expiration field</p>";
+        $GLOBALS['expiration'] = format_data($_POST["expiration"]);
+        if (empty($GLOBALS['expiration']) or !preg_match("/^(0[1-9]|10|11|12)\/[0-9]{2}$/", $GLOBALS['expiration'])) {
+            $bad_data = True;
+            echo "<p class = 'error'>Bad data for expiration field</p>";
 
-        // }
+        }
         return $bad_data;
     }
 
