@@ -25,7 +25,7 @@
             </a>
             <div class="nav-bar-links-container">
                 <div class="topnav" id="nav-bar-tabs">
-                    <a href="index.html">Apparel</a>
+                    <a href="index.php">Apparel</a>
                     <a href="about.html">About</a>
                 </div>
             </div>
