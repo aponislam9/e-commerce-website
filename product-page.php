@@ -1,4 +1,17 @@
+<<<<<<< Updated upstream:product-page.php
 
+=======
+<?php
+
+    $product = $_COOKIE["gfg"];
+    echo "afabfejhaf";
+    echo $product;
+    echo "faefafa";
+
+
+
+?>
+>>>>>>> Stashed changes:product-page.html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,6 +62,24 @@
             <div class="col-md-5">
                 <?php
 
+<<<<<<< Updated upstream:product-page.php
+=======
+                    // Dont think I need this
+
+                    $test = '<script>
+                    
+                        var product = localStorage.getItem("textvalue")
+
+
+                        
+                        document.writeln(product);
+                        
+                        </script>';
+                        
+
+
+                    // Database stuff. Connects
+>>>>>>> Stashed changes:product-page.html
                     require 'php/product-database.php';
 
                     try{
@@ -73,6 +104,7 @@
                         echo $e-> getMessage();
                     }
 
+<<<<<<< Updated upstream:product-page.php
                     
                 
 
@@ -84,6 +116,18 @@
                     $sql = "SELECT * FROM prodTest WHERE pname ="."'".strval($product)."'"."";
 
                     
+=======
+                    //Gets the product based off the URL
+                
+                    $product = $_GET['pr'];
+
+
+                    $sql = "SELECT * FROM prodTest WHERE pname ="."'".strval($product)." '"."";
+                   
+
+                    
+                    //Gets the row and populates the page with information
+>>>>>>> Stashed changes:product-page.html
                     foreach($connection->query($sql) as $row){
                         
 

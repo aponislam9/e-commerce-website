@@ -206,6 +206,7 @@ window.onload = function() {
 
 function passValue(product){
     console.log(product)
+    document.cookie = escape(name)+"="+escape(value);
     localStorage.setItem("textvalue",product);
     console.log(product)
     return false;

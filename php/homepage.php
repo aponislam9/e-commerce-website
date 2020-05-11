@@ -1,4 +1,9 @@
 <?php
+<<<<<<< Updated upstream
+=======
+
+    // Potentially use if html on index
+>>>>>>> Stashed changes
     // require_once "hpdo.php";
 
     $products = array();

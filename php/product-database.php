@@ -67,7 +67,11 @@
         //Inserts the information into the database
         
         $sql = "INSERT INTO prodTest(`pid`, `pname`, `price`, `descr`, `quantity`, `srcOne`, `srcTwo`, `srcThree`, `alt`) VALUES
+<<<<<<< Updated upstream
             ('1','Amalgam Fleece+Snyth','$174.99', 'Warm multicolor fleece. The different colors represent the famous Nuance brand. Wash on cold. 40% cotton' ,'50','assets/Product-1-v0.jpg', 'assets/Product-1-v1.jpg','assets/Product-1-v2.jpg', 'clothes'),
+=======
+            ('1','Amalgam Fleece Snyth','$174.99', 'Warm multicolor fleece. The different colors represent the famous Nuance brand. Wash on cold. 40% cotton' ,'50','assets/Product-1-v0.jpg', 'assets/Product-1-v1.jpg','assets/Product-1-v2.jpg', 'clothes'),
+>>>>>>> Stashed changes
             ('2','Retro Walkers','$89.99','Multi color runners. Designed in Italy, sold on Nuance 9. Shoe runs true to size','34','assets/Product-2-v0.jpg','assets/Product-2-v1.jpg','assets/Product-2-v2.jpg','clothes'),
             ('3','Deathlyhallow 3','$49.99','Cargo camo pants. The material is imported from South Africa. Wash on cool since it is 34% Polyester','72','assets/Product-3-v0.jpg','assets/Product-3-v1.jpg','assets/Product-3-v2.jpg','clothes'),
             ('4','Featuring Teddy Roosevelt','$19.99','Bear hat is a one size fits all hat. The material is safe for all types of washes','45','assets/Product-4-v0.jpg','assets/Product-4-v1.jpg','assets/Product-4-v2.jpg','clothes'),
