@@ -109,9 +109,9 @@
 
 
 
-                $product = $_COOKIE["gfg"];
+                $product = $_GET['pr'];
 
-                echo $product;
+                
 
                 $sql = "SELECT * FROM prodTest WHERE pname =" . "'" . strval($product) . "'" . "";
 
