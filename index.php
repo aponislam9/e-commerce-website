@@ -2,11 +2,8 @@
     
     require 'php/product-database.php'
 
-<<<<<<< Updated upstream
-=======
     
 
->>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
@@ -28,10 +25,7 @@
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script>
 
-<<<<<<< Updated upstream
-=======
         // Get the product name from image click of product and routes to next page adding product into URL
->>>>>>> Stashed changes
         function getProduct(p) {
             
             var tempNode = $("div");
@@ -50,28 +44,16 @@
 
             var finalProduct = (lastHTML[1].innerHTML);
 
-<<<<<<< Updated upstream
-            // var almostTitle = str.split("product-title");
-=======
             
             var url = "product-page.php" + '?pr=' + finalProduct;
 
             window.location.replace(url);
             
->>>>>>> Stashed changes
 
             passValue(finalProduct);
             
         }
 
-<<<<<<< Updated upstream
-        function passValue(product){
-            console.log(product)
-            localStorage.setItem("textvalue",product);
-            console.log(product)
-            return false;
-    // console.log(product)
-=======
         //Bascically the top function but for product name click
         function passValue(product){
 
@@ -85,7 +67,6 @@
 
             return false;
  
->>>>>>> Stashed changes
 }
 
     </script>
@@ -118,11 +99,7 @@
 
             <?php 
 
-<<<<<<< Updated upstream
-                include "php/homepage.php";
-=======
                 // include "php/homepage.php";
->>>>>>> Stashed changes
 
                 
                 $products = array();
@@ -176,15 +153,6 @@
                         //     var product = e.toElement.text;
                         //     passValue(product)
                         $title = $row['pname'];
-<<<<<<< Updated upstream
-                        echo "  <div class='card h-100' href='product-page.php' onclick='getProduct(this)'>";
-                        echo "      <a href='product-page.php' class='image-container'>";
-                        echo "          <img class='card-img-top' src='".$row["srcOne"]."' alt=''>";
-                        echo "      </a>";
-                        echo "      <div class='card-body'>";
-                        echo "    era      <h4 class='card-title' href='product-page.php' onclick='passValue({$row['pname']})'>";
-                        echo "              <a href='product-page.php' id='title' class='product-title'>{$row['pname']}</a>";
-=======
                         echo "  <div class='card h-100' onclick='getProduct(this)'>";
                         echo "      <a href='#' class='image-container'>";
                         echo "          <img class='card-img-top' src='".$row["srcOne"]."' alt=''>";
@@ -193,7 +161,6 @@
                         // echo "         <h4 class='card-title' onclick='passValue({$row['pname']})'>";
                         echo "         <h4 class='card-title' onclick='passValue({$row['pname']})'>";
                         echo "              <a href='#' id='title' class='product-title'>{$row['pname']}</a>";
->>>>>>> Stashed changes
                         echo "          </h4>";
                         echo "          <h5 class='card-cost'>{$row['price']}</h5>";
                         echo "          <p class='card-text'>{$row['descr']}</p>";
