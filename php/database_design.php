@@ -10,7 +10,7 @@
         fname VARCHAR(30) NOT NULL,
         lname VARCHAR(30) NOT NULL,
         email VARCHAR(50) NOT NULL,
-        phone VARCHAR(10) NOT NULL,
+        phone VARCHAR(12) NOT NULL,
         street_address VARCHAR(50) NOT NULL,
         city VARCHAR(30) NOT NULL,
         us_state VARCHAR(30) NOT NULL,
@@ -52,7 +52,7 @@
    
 
    $sql = "INSERT INTO products (pid, pname, pprice) VALUES
-        ('1A','Amalgam Fleece+Snyth','174.99'),
+        ('1A','Amalgam Fleece Snyth','174.99'),
         ('2R','Retro Walkers','89.99'),
         ('3D','Deathlyhallow 3','49.99'),
         ('4F','Featuring Teddy Roosevelt', '19.99'),
@@ -61,7 +61,7 @@
         ('7S','Subtle Arachnid','39.99'),
         ('8T','Tactical Cubeta','29.99'),
         ('9T','The Vest','54.99'),
-        ('10S','Samura','59.99'),
+        ('10S','Samurai','59.99'),
         ('11D','Drifter','64.99'),
         ('12G','Godzilla','24.99')";
     $pdo->exec($sql);
