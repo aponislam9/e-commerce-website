@@ -251,6 +251,7 @@
                     echo "<h2 id='name'>" . $row["pname"] . "</h2>";
                     echo "<p id='prd-color'></p>";
                     echo "<p id='description'> " . $row["descr"] . "</p>";
+                    echo "<p id='description'> Product Identifier:  " . $row["pid"] . "</p>";
                     // echo "<img src ='assets/5-stars.png' class='rating'>";
                     echo "<p id = 'pid'></p>";
                     echo "<div class='row price-row'>";
