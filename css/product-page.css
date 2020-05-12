@@ -89,7 +89,12 @@
     padding-left: 13px;
 }
 
-.tax {
+.price-subtext-end {
+    padding-top: 28px;
+    font-size: 17px;
+    color: #363062;
+}
+.price-subtext-start {
     padding-top: 28px;
     padding-left: 5px;
     font-size: 17px;

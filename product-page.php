@@ -33,7 +33,6 @@
                 var quantity = $('#quantity').val();
                 var shipping = $("input[name='shipping']:checked").val();
                 $('.error-message').load("php/form_validation.php", {
-
                     fname: fname,
                     lname: lname,
                     email: email,
@@ -51,6 +50,109 @@
                     shipping: shipping
                 });
             });
+
+
+
+            // AJAX CODE FOR TAX RATE
+            var stateSet = false;
+            var zipSet = false;
+
+            // Event field for state field
+            $("#state").change(function() {
+                const state = $("#state").val();
+                if (state != "") {
+                    stateSet = true;
+                } else {
+                    stateSet = false;
+                }
+
+                if (stateSet && zipSet) {
+                    updateTaxRateInDOM();
+                }
+            })
+
+            // Event listener for zip field
+            $("#zip").change(function() {
+                const zip = $("#zip").val();
+                if (zip && zip.length == 5) {
+                    autofillStateAndCity();
+                    zipSet = true;
+                } else {
+                    zipSet = false;
+                }
+
+                if (stateSet && zipSet) {
+                    updateTaxRateInDOM();
+                } 
+            })
+
+            async function updateTaxRateInDOM() {
+                const state = $("#state").val();
+                const zip = $("#zip").val();
+
+                const file = await fetch('./data/tax_rates.csv');
+                const data = await file.text();
+                const rows = data.split('\n')
+
+                var taxRate = "";
+                rows.forEach(entry => {
+                    const row = entry.split(',');
+                    const s = row[0];
+                    const z = row[1];
+                    if (z == zip && s == state) {
+                        taxRate = row[3];
+                    }
+
+                })
+
+                const price = $("#price")[0].childNodes[0].textContent.replace("$", "");
+
+                var taxRateNumber = Number(taxRate);
+                var producePriceNumber = Number(price);
+                var taxAmmount = (taxRateNumber * producePriceNumber)
+                var taxAmmountFormatted = "+ $" + taxAmmount.toFixed(2) + " tax"
+
+                $("#tax")[0].childNodes[0].textContent = taxAmmountFormatted;
+            }
+
+            async function autofillStateAndCity() {
+                const zip = $("#zip").val();
+                const file = await fetch('./data/zip_code_database.csv');
+                const data = await file.text();
+                const rows = data.split('\n')
+                var city = "";
+                var state = "";
+
+                rows.forEach(entry => {
+                    const row = entry.split(',');
+                    z = row[0];
+                    if (z == zip) {
+                        city = row[3]; // Primary City
+                        state = row[6]; // state 
+                        return;
+                    }
+                })
+                $("#state").val(state);
+                $("#city").val(city);
+                updateTaxRateInDOM();
+            }
+
+            // SHIPPING UPDATE
+            var initShippingPriceLabel = $('input[name="shipping"]:checked').next('label:first').html();
+            updateShippingPrice(initShippingPriceLabel);
+
+
+            $("div#shipping-options").click(function() {
+                var newShippingPriceLabel = $('input[name="shipping"]:checked').next('label:first').html();
+                updateShippingPrice(newShippingPriceLabel);
+            })
+
+            function updateShippingPrice(newShippingPriceLabel) {
+                var newPrice = newShippingPriceLabel.split("$")[1];
+                var priceFormatted = "& $" + newPrice + " shipping"
+                $("#shipping")[0].childNodes[0].textContent = priceFormatted;
+            }
+
         });
     </script>
 </head>
@@ -59,8 +161,6 @@
 
     <script>
         var product = localStorage.getItem("textvalue")
-        console.log("YEP")
-        console.log(product);
     </script>
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -155,7 +255,8 @@
                     echo "<p id = 'pid'></p>";
                     echo "<div class='row price-row'>";
                     echo "<p class='price' id='price'>" . $row["price"] . "</p>";
-                    echo "<p class='tax' id='tax'>+tax</p>";
+                    echo "<p class='price-subtext-start tax' id='tax'>+ tax</p>";
+                    echo "<p class='price-subtext-end tax' id='shipping'>& shipping</p>";
                     echo "</div>";
 
                     echo "<label for='size'>Select a size</label>";
@@ -322,7 +423,7 @@
                 </div>
 
                 <label for="shipping">Shipping</label>
-                <div class="form-row">
+                <div class="form-row" id="shipping-options">
 
                     <div class="form-group col-md-3">
                         <input type="radio" id="standard" name="shipping" value="standard">
