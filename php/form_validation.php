@@ -40,7 +40,6 @@
             $stmt->execute(array(':ID' => $pid));
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $total = $row['pprice']*$quantity+$shipping_rate;
-            echo "<p class = 'total'>Order Total: $total</p>";
 
 
             //add order
@@ -50,6 +49,8 @@
             $stmt->execute(array(':cid' => $cid, ':ccnum' => $ccnum, ':pid' => $pid, ':quantity' => $quantity, ':total'=> $total));
 
             $pdo = null;
+
+            echo "<script>var url = 'order_info.php'; window.location.replace(url); </script>'";
 
 
         }

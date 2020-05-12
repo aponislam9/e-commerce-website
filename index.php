@@ -105,8 +105,8 @@
                 $products = array();
 
                 $servername = "localhost";
-                $username = "test";
-                $password = "test1234";
+                $username = "user";
+                $password = "test123";
                 
                 try{
                     
